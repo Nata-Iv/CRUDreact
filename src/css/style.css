@@ -1,0 +1,79 @@
+form {
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+    background-color: antiquewhite;
+}
+input {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+label {
+    padding-left: 30px;
+}
+select {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+form button {
+    margin-top: 20px;
+    width: 100px;
+    margin-left: 30px;
+}
+.allCard {
+    min-height: 560px;
+}
+.oneCard {
+    margin: 0 auto;
+    width: 600px;
+    background-color: antiquewhite;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    min-height: 160px;
+}
+.placeUser {
+    min-height: 135px;
+}
+.oneCard h1,
+.oneCard p {
+    margin: 0 0 5px 0;
+}
+
+#btn-add {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: rgb(183, 228, 213);
+    font-size: 18px;
+}
+
+#subm {
+    display: block;
+    margin: 20px auto 5px;
+}
+
+.pagination {
+    justify-content: center;
+    display: flex;
+    list-style-type: none;
+}
+
+.page-item {
+    margin: 0 20px;
+}
+
+.page-num {
+    padding: 5px 10px;
+    background-color: rgb(183, 237, 237);
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+.page-num:hover,
+.page-num:active {
+    background-color: rgb(60, 168, 159);
+}
+
+
