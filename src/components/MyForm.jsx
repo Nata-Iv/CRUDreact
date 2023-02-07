@@ -2,8 +2,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import "yup-phone";
 import React, { useState } from 'react'
-// import '../css/style.css'
-
 
 const MyForm = ({handleSubmit, initialValues}) => {
 
@@ -54,8 +52,8 @@ const MyForm = ({handleSubmit, initialValues}) => {
           <label htmlFor="gender">Gender</label>
           <Field name="gender" as="select" className="my-select">
             <option value=""></option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </Field>
 
           <button id='subm' type="submit">Submit</button>

@@ -4,7 +4,9 @@ const Home = () => {
     return (
         <div>
             <p>Home</p>
-            <NavLink to="users?limit=3&page=1"><b>Go to the list of users</b></NavLink>
+            <NavLink to="users"><b>Go to the list of users</b></NavLink>
+            <br />
+            <NavLink to="mobx"><b>Go to mobx</b></NavLink>
             <Routes>
                 <Route path="" element={<p>This page for home</p>} />
             </Routes>

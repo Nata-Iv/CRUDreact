@@ -1,18 +1,20 @@
-import { Formik, Form, Field, ErrorMessage} from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import "yup-phone";
-import React, {useState} from 'react'
-import '../../css/style.css'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Myform2 = () => {
+const MyFormMx = ({handleSubmit, initialValues}) => {
+
   const [users, setUsers] = useState([])
+  const navigate = useNavigate()
+  
   return (
     <div>
-      <Formik    
-        initialValues={{ id: null, firstName: '', email: '', phone: '', age: '', gender: '' }}
-
+      <Formik
+        initialValues={initialValues}
         validationSchema={Yup.object({
-          firstName: Yup.string()
+          name: Yup.string()
             .max(15, 'Must be 15 characters or less')
             .required('Required'),
           email: Yup.string().email('Invalid email address').required('Required'),
@@ -23,17 +25,18 @@ const Myform2 = () => {
             )
             .max(11, 'Must be 10 characters or less'),
           age: Yup.string().max(2, "Must be 1 or 2 characters")
-        })}   
+        })}
 
         onSubmit={(values) => {
-          //console.log(values)
-          setUsers((prevState) => [...prevState, {...values, id: `${Date.now()}`}])
+          setUsers((prevState) => [...prevState, { ...values, id: `${Date.now()}` }])
+          handleSubmit(values, navigate)
         }}
+
       >
         <Form  >
-          <label htmlFor="firstName">Name</label>
-          <Field name="firstName" type="text" />
-          <ErrorMessage name="firstName" />
+          <label htmlFor="name">Name</label>
+          <Field name="name" type="text" />
+          <ErrorMessage name="name" />
 
           <label htmlFor="email">Email Address</label>
           <Field name="email" type="email" />
@@ -49,28 +52,27 @@ const Myform2 = () => {
 
           <label htmlFor="gender">Gender</label>
           <Field name="gender" as="select" className="my-select">
-            <option value="red"></option>
-            <option value="green">Male</option>
-            <option value="blue">Female</option>
+            <option value=""></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </Field>
 
-          <button type="submit">Submit</button>
+          <button id='subm' type="submit">Submit</button>
         </Form>
       </Formik>
       <div>
-            {users.map((user, index) => (
-                    <div className='oneCard' key={user.id}>
-                        <h1>{user.firstName}</h1>
-                        <p>{user.email}</p>
-                        <p>{user.phone}</p>
-                        <p>{user.age}</p>
-                        <p>{user.gender}</p>
-                        <button >edit</button>
-                    </div>
-                ))}
-            </div>
+        {users.map((user, index) => (
+          <div className='oneCard' key={user.id}>
+            <h1>{user.name}</h1>
+            <p>{user.email}</p>
+            <p>{user.phone}</p>
+            <p>{user.age}</p>
+            <p>{user.gender}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
 
-export default Myform2
+export default MyFormMx
